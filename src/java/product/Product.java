@@ -18,14 +18,14 @@ public class Product {
     private String isActive = "";
     private String ownerId = "";
     private String datePosted = "";
-    private String picFileName = "";
+    private String picFolder = "";
     private String error = "";
 
     public Product(){
         
     }
     
-    public Product(String productId, String title, String description, String price, String isActive, String ownerId, String datePosted, String picFileName) {
+    public Product(String productId, String title, String description, String price, String isActive, String ownerId, String datePosted, String picFolder) {
         this.productId = productId;
         this.title = title;
         this.description = description;
@@ -33,11 +33,11 @@ public class Product {
         this.isActive = isActive;
         this.ownerId = ownerId;
         this.datePosted = datePosted;
-        this.picFileName = picFileName;
+        this.picFolder = picFolder;
     }
 
     public boolean isEmpty(){
-        String allFields = productId + title + description + price + isActive + ownerId + datePosted + picFileName + error;
+        String allFields = productId + title + description + price + isActive + ownerId + datePosted + picFolder + error;
         return (allFields.length() == 0);
     }
     
@@ -65,12 +65,12 @@ public class Product {
         this.description = description;
     }
 
-    public String getPicFileName() {
-        return picFileName;
+    public String getPicFolder() {
+        return picFolder;
     }
 
-    public void setPicFileName(String picFileName) {
-        this.picFileName = picFileName;
+    public void setPicFolder(String picFolder) {
+        this.picFolder = picFolder;
     }
 
     public String getPrice() {

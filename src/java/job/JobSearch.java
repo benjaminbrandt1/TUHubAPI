@@ -29,7 +29,7 @@ public class JobSearch {
                 sql += " WHERE is_active = 1;";
             } 
             
-            sql += " LIMIT ? OFFSET ?;";
+            sql += " LIMIT ?,? ORDER BY date_posted DESC;";
             
 
             
@@ -109,7 +109,7 @@ public class JobSearch {
 
             // prepare (compiles) the SQL statement
            StringBuilder sql = new StringBuilder("SELECT job_id, user_id_job, date_posted, location, hours_per_week, description, title, pay, start_date, is_active, picture_key_job"
-                    + " FROM job WHERE user_id_job = ? LIMIT ? OFFSET ?;");                    
+                    + " FROM job WHERE user_id_job = ? LIMIT ?,? ORDER BY date_posted DESC;");
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql.toString());
             
@@ -149,7 +149,7 @@ public class JobSearch {
 
             String sql = "SELECT job_id, user_id_job, date_posted, location, hours_per_week, description, title, pay, start_date, is_active, picture_key_job"
                     + " FROM job WHERE is_active = 1"
-                    + " AND title LIKE ? LIMIT ? OFFSET ?;";
+                    + " AND title LIKE ? LIMIT ?,? ORDER BY date_posted DESC;";
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql);
             

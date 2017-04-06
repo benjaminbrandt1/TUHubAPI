@@ -30,7 +30,7 @@ public class ProductSearch {
                 sql += " WHERE is_active = 1";
             } 
             
-            sql += " ORDER BY date_posted DESC LIMIT ? OFFSET ?;";
+            sql += " LIMIT ?,? ORDER BY date_posted DESC;";
             
                      
            
@@ -83,7 +83,7 @@ public class ProductSearch {
                 product.setIsActive(FormatUtils.formatBoolean(results.getObject("is_active")));
                 product.setOwnerId(FormatUtils.formatString(results.getObject("user_id_product")));
                 product.setDatePosted(FormatUtils.formatDateYearFirst(results.getObject("date_posted")));
-                product.setPicFileName(FormatUtils.formatInteger(results.getObject("picture_key_product")));
+                product.setPicFolder(FormatUtils.formatInteger(results.getObject("picture_key_product")));
                 
             } else {
                 product.setError("No product listing with that ID found.");
@@ -102,7 +102,7 @@ public class ProductSearch {
 
             // prepare (compiles) the SQL statement
             String sql = "SELECT product_id, title, description, price, is_active, user_id_product, date_posted, picture_key_product"
-                    + " FROM product WHERE user_id_product = ? ORDER BY date_posted DESC LIMIT ? OFFSET ?;";
+                    + " FROM product WHERE user_id_product = ? LIMIT ?,? ORDER BY date_posted DESC;";
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql);
             
@@ -138,7 +138,7 @@ public class ProductSearch {
             // prepare (compiles) the SQL statement
             String sql = "SELECT product_id, title, description, price, is_active, user_id_product, date_posted, picture_key_product"
                     + " FROM product WHERE is_active = 1"
-                    + " AND title LIKE ? ORDER BY date_posted DESC LIMIT ? OFFSET ?;";
+                    + " AND title LIKE ? LIMIT ?,? ORDER BY date_posted DESC;";
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql);
             

@@ -49,7 +49,9 @@ public class FormatUtils {
         }
         try {
             java.util.Date dateval = (java.util.Date) obj;
-            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy/MM/dd 'at' HH:mm:ss:SSS");
+            TimeZone timeZone = TimeZone.getTimeZone("UTC");
+            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            simpleDateFormat.setTimeZone(timeZone);
             dateformat.setLenient(false); 
             StringBuilder sb = new StringBuilder(dateformat.format(dateval));
             int index;
