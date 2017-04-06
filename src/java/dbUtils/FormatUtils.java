@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 /**
  * Collection of static methods that format various data types (all passed in as objects).
@@ -51,7 +52,7 @@ public class FormatUtils {
             java.util.Date dateval = (java.util.Date) obj;
             TimeZone timeZone = TimeZone.getTimeZone("UTC");
             SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-            simpleDateFormat.setTimeZone(timeZone);
+            dateformat.setTimeZone(timeZone);
             dateformat.setLenient(false); 
             StringBuilder sb = new StringBuilder(dateformat.format(dateval));
             int index;
