@@ -29,7 +29,7 @@ public class PersonalSearch {
                 sql += " WHERE is_active = 1";
             } 
             
-            sql += " LIMIT ?,? ORDER BY date_posted DESC;";
+            sql += " ORDER BY date_posted DESC LIMIT ?,?;";
             
                      
            
@@ -99,7 +99,7 @@ public class PersonalSearch {
 
             // prepare (compiles) the SQL statement
           String sql = "SELECT personal_id, user_id_personal, title, description, location, date_posted, is_active, picture_key_personal"
-                    + " FROM personal WHERE user_id_personal=? LIMIT ?,? ORDER BY date_posted DESC;";
+                    + " FROM personal WHERE user_id_personal=? ORDER BY date_posted DESC LIMIT ?,?;";
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql);
             
@@ -134,7 +134,7 @@ public class PersonalSearch {
 
             String sql = "SELECT personal_id, user_id_personal, title, description, location, date_posted, is_active, picture_key_personal"
                     + " FROM personal WHERE is_active = 1"
-                    + " AND title LIKE ? LIMIT ?,? ORDER BY date_posted DESC;";
+                    + " AND title LIKE ? ORDER BY date_posted DESC LIMIT ?,?;";
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql);
             

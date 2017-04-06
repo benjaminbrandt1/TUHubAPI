@@ -30,7 +30,7 @@ public class ProductSearch {
                 sql += " WHERE is_active = 1";
             } 
             
-            sql += " LIMIT ?,? ORDER BY date_posted DESC;";
+            sql += " ORDER BY date_posted DESC LIMIT ?,?;";
             
                      
            
@@ -102,7 +102,7 @@ public class ProductSearch {
 
             // prepare (compiles) the SQL statement
             String sql = "SELECT product_id, title, description, price, is_active, user_id_product, date_posted, picture_key_product"
-                    + " FROM product WHERE user_id_product = ? LIMIT ?,? ORDER BY date_posted DESC;";
+                    + " FROM product WHERE user_id_product = ? ORDER BY date_posted DESC LIMIT ?,?;";
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql);
             
@@ -138,7 +138,7 @@ public class ProductSearch {
             // prepare (compiles) the SQL statement
             String sql = "SELECT product_id, title, description, price, is_active, user_id_product, date_posted, picture_key_product"
                     + " FROM product WHERE is_active = 1"
-                    + " AND title LIKE ? LIMIT ?,? ORDER BY date_posted DESC;";
+                    + " AND title LIKE ? ORDER BY date_posted DESC LIMIT ?,?;";
                                                     
             PreparedStatement pStatement = dbc.getConn().prepareStatement(sql);
             
