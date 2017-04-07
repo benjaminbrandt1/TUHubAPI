@@ -26,7 +26,7 @@ public class JobSearch {
             String sql = "SELECT job_id, user_id_job, date_posted, location, hours_per_week, description, title, pay, start_date, is_active, picture_key_job"
                     + " FROM job";
             if(activeOnly){
-                sql += " WHERE is_active = 1;";
+                sql += " WHERE is_active = 1";
             } 
             
             sql += " ORDER BY date_posted DESC LIMIT ? OFFSET ?;";

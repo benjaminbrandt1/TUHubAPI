@@ -14,12 +14,12 @@ import java.util.ArrayList;
 public class PersonalList {
 
     public String dbError = "";
-    private ArrayList<Personal> jobList = new ArrayList();
+    private ArrayList<Personal> personalList = new ArrayList();
 
     public PersonalList() {
     }
 
     public void addOption(Personal option) {
-        this.jobList.add(option);
+        this.personalList.add(option);
     }
 }
