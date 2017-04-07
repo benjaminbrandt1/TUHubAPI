@@ -51,7 +51,7 @@ public class JobSearch {
                 String description = FormatUtils.formatString(results.getObject("description"));
                 String title = FormatUtils.formatString(results.getObject("title"));
                 String pay = FormatUtils.formatDollar(results.getObject("pay"));
-                String startDate = FormatUtils.formatDateYearFirst(results.getObject("start_date"));
+                String startDate = FormatUtils.formatDate(results.getObject("start_date"));
                 String isActive = FormatUtils.formatBoolean(results.getObject("is_active"));
                 String pictureKey = FormatUtils.formatInteger(results.getObject("picture_key_job"));
                 jobList.addOption(new Job(jobId, ownerId, datePosted, location, hoursPerWeek, description, title, pay, startDate, isActive, pictureKey));
