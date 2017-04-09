@@ -47,7 +47,8 @@
         job.setLocation(request.getParameter(locationKey));
     }
     if (request.getParameter(hoursPerWeekKey) != null) {
-        job.setHoursPerWeek(request.getParameter(hoursPerWeekKey));
+        int hours = Integer.parseInt(request.getParameter(hoursPerWeekKey));
+        job.setHoursPerWeek(hours);
     }
     if (request.getParameter(startDateKey) != null) {
         job.setStartDate(request.getParameter(startDateKey));
