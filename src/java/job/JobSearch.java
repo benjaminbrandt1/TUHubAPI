@@ -88,7 +88,7 @@ public class JobSearch {
                 job.setDescription(FormatUtils.formatString(results.getObject("description")));
                 job.setTitle(FormatUtils.formatString(results.getObject("title")));
                 job.setPay(FormatUtils.formatDollar(results.getObject("pay")));
-                job.setStartDate(FormatUtils.formatDateYearFirst(results.getObject("start_date")));
+                job.setStartDate(FormatUtils.formatDate(results.getObject("start_date")));
                 job.setIsActive(FormatUtils.formatBoolean(results.getObject("is_active")));
                 job.setPicFolder(FormatUtils.formatInteger(results.getObject("picture_key_job")));
                 
@@ -130,7 +130,7 @@ public class JobSearch {
                 String description = FormatUtils.formatString(results.getObject("description"));
                 String title = FormatUtils.formatString(results.getObject("title"));
                 String pay = FormatUtils.formatDollar(results.getObject("pay"));
-                String startDate = FormatUtils.formatDateYearFirst(results.getObject("start_date"));
+                String startDate = FormatUtils.formatDate(results.getObject("start_date"));
                 String isActive = FormatUtils.formatBoolean(results.getObject("is_active"));
                 String pictureKey = FormatUtils.formatInteger(results.getObject("picture_key_job"));
                 jobList.addOption(new Job(jobId, ownerId, datePosted, location, hoursPerWeek, description, title, pay, startDate, isActive, pictureKey));
@@ -168,7 +168,7 @@ public class JobSearch {
                 String description = FormatUtils.formatString(results.getObject("description"));
                 String title = FormatUtils.formatString(results.getObject("title"));
                 String pay = FormatUtils.formatDollar(results.getObject("pay"));
-                String startDate = FormatUtils.formatDateYearFirst(results.getObject("start_date"));
+                String startDate = FormatUtils.formatDate(results.getObject("start_date"));
                 String isActive = FormatUtils.formatBoolean(results.getObject("is_active"));
                 String pictureKey = FormatUtils.formatInteger(results.getObject("picture_key_job"));
                 jobList.addOption(new Job(jobId, ownerId, datePosted, location, hoursPerWeek, description, title, pay, startDate, isActive, pictureKey));
